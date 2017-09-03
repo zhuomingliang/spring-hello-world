@@ -17,4 +17,8 @@ public class WelcomeController {
         	return "foobar";
         }
 
+        @GetMapping("/ex")
+        public String exAction() throws Exception {
+            throw new Exception("发生错误");
+        }
 }

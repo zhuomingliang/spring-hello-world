@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class NotFoundController implements ErrorController {
 
-		@GetMapping     // 不存在的路径都会在这里被捕获
+        @GetMapping     // 不存在的路径都会在这里被捕获
         @ResponseStatus(HttpStatus.NOT_FOUND)
         public String NotFoundAction() {
             return "not_found";

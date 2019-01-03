@@ -15,21 +15,21 @@ import com.example.entry.User;
 @Controller
 public class WelcomeController {
 	@Autowired
-	private UserRepository user;
+	private UserRepository userRepository;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@GetMapping("/")
 	public String HelloAction() {
 
-		Optional<User> user1 = user.findById(1L);
+		Optional<User> user = userRepository.findById(1L);
 
-		if (user1.isPresent()) {
-			logger.info(user1.get().getName());
+		if (user.isPresent()) {
+			logger.info(user.get().getName());
 		}
 
-		List<User> users = user.findByName("3333");
-		for (User user : users) {
-			logger.info(user.getName());
+		List<User> users = userRepository.findByName("admin");
+		for (User u : users) {
+			logger.info(u.getName());
 		}
 
 		return "hello";

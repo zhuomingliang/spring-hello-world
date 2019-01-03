@@ -5,10 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", indexes = { @Index(name = "users_name_account", columnList = "name,account") })
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
